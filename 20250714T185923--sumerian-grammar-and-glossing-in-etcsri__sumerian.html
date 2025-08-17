@@ -1,0 +1,1773 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2025-08-17 Sun 15:45 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Sumerian grammar and glossing in ETCSRI</title>
+<meta name="author" content="Michał Kluz" />
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Sumerian grammar and glossing in ETCSRI</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#orgae127c1">1. Template morphology&#xa0;&#xa0;&#xa0;<span class="tag"><span class="fc">fc</span></span></a></li>
+<li><a href="#org2d4e088">2. ETCSRI classifies each Sumerian word into one of 3 templates:&#xa0;&#xa0;&#xa0;<span class="tag"><span class="fc">fc</span></span></a></li>
+<li><a href="#org53141af">3. Noun phrase</a>
+<ul>
+<li><a href="#org6d4030c">3.1. N1, Head</a></li>
+<li><a href="#org3f959ef">3.2. N2, Modifier</a></li>
+<li><a href="#orgf549b88">3.3. N3, Possesor</a></li>
+<li><a href="#orgf4a2e1b">3.4. N4, Plural marker or the ordinal number suffix</a></li>
+<li><a href="#org6eb64b5">3.5. N5, Case-marker</a></li>
+<li><a href="#org78eb279">3.6. N6, Copula</a></li>
+</ul>
+</li>
+<li><a href="#org34fc7e3">4. Non-finite verb</a>
+<ul>
+<li><a href="#org60a9aa6">4.1. NV1, negative prefix</a></li>
+<li><a href="#orgc226add">4.2. NV2, stem</a></li>
+<li><a href="#orgd4500bd">4.3. NV3, present-future marker</a></li>
+<li><a href="#orgec7309d">4.4. NV4, subordinator</a></li>
+</ul>
+</li>
+<li><a href="#orge049755">5. Finite verb</a>
+<ul>
+<li><a href="#orgd738c0f">5.1. V1, The modal prefix ha-, negative prefix nu-, prefix of anteriority</a></li>
+<li><a href="#org14c3c2e">5.2. V2, Modal prefixes other than ha-, the finite-marker prefixes</a></li>
+<li><a href="#orgba90a1e">5.3. V3, Coordinator prefix</a></li>
+<li><a href="#org66fc00d">5.4. V4, Ventive (cislocative) prefix</a></li>
+<li><a href="#orgbde4300">5.5. V5, Middle prefix or 3nh pronominal prefix (specifying the person, gender and number of the first in the sequence of dimensional prefixes)</a></li>
+<li><a href="#org470142a">5.6. V6, Initial Pronominal prefix (specifying the person, gender and number of the first in the sequence of dimensional prefixes)x</a></li>
+<li><a href="#orgd94515c">5.7. V7, Dimensional I: dative prefix</a></li>
+<li><a href="#org0865761">5.8. V8, Dimensional II: comitative prefix</a></li>
+<li><a href="#org7812ebe">5.9. V9, Dimensional III: ablative or terminative prefix</a></li>
+<li><a href="#orgfe0feb6">5.10. V10, Dimensional IV: locative1, locative2, or locative3 prefix</a></li>
+<li><a href="#orgc4db2b5">5.11. V11, Final Pronominal prefix (referring to A or P, depending on the tense)</a></li>
+<li><a href="#org039c655">5.12. V12, stem</a></li>
+<li><a href="#org7ca8de0">5.13. V13, present-future marker (in intransitive verbs)</a></li>
+<li><a href="#orgbb3feb3">5.14. V14, pronominal suffix (referring A, S, or P depending on the tense)</a></li>
+<li><a href="#orgb07a7be">5.15. V15, Subordinator</a></li>
+</ul>
+</li>
+<li><a href="#org4cdeeb0">6. sources</a></li>
+</ul>
+</div>
+</div>
+<p>
+"The mixed logographic-phonographic writing system reflects the morphophonological structure of Sumerian to varying extent in different periods.
+The morpho-phonological structure of Sumerian words must therefore be reconstructed by setting up correspondences between the sequence of graphemes and the sequence of morphemes.
+This interpretation is necessarily subjective to some extent, and reflects the grammatical model of the interpreter." (Gábor Zólyomi, 2017 page 21)
+</p>
+
+<p>
+All models are wrong, but some are useful. We will describe the model used by The Electronic Text Corpus of Sumerian Royal Inscriptions (ETCSRI) (Zólyomi, Gábor - Tanos, Bálint - Sövegjártó, Szilvia, 2008-), because that's the most extensive morphologically analyzed Sumerian corpus to date. ETCSRI uses the model of template morphology.
+</p>
+<div id="outline-container-orgae127c1" class="outline-2">
+<h2 id="orgae127c1"><span class="section-number-2">1.</span> Template morphology&#xa0;&#xa0;&#xa0;<span class="tag"><span class="fc">fc</span></span></h2>
+<div class="outline-text-2" id="text-1">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">position</th>
+<th scope="col" class="org-right">ease</th>
+<th scope="col" class="org-right">box</th>
+<th scope="col" class="org-right">interval</th>
+<th scope="col" class="org-left">due</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">front</td>
+<td class="org-right">2.50</td>
+<td class="org-right">0</td>
+<td class="org-right">0.00</td>
+<td class="org-left">2025-08-17T13:35:15Z</td>
+</tr>
+</tbody>
+</table>
+<p>
+Template morphology descibes words in terms of position classes (Gregory Stump, 2005).
+A position class is a class of affixes with two properties:
+</p>
+<ul class="org-ul">
+<li>in the paradigmatic dimension, affixes in the same class are mutually exclusive, at most one affix of each class can occur in a word;</li>
+<li>in the syntagmatic dimension, the affixes in a given class always appear in the same order relative to the affixes in every other class (before or after);</li>
+</ul>
+<p>
+Some affix classes may span two or more prefix positions – that is, their members are paradigmatically opposed to any combination of affixes occupying those positions.
+</p>
+</div>
+</div>
+<div id="outline-container-org2d4e088" class="outline-2">
+<h2 id="org2d4e088"><span class="section-number-2">2.</span> ETCSRI classifies each Sumerian word into one of 3 templates:&#xa0;&#xa0;&#xa0;<span class="tag"><span class="fc">fc</span></span></h2>
+<div class="outline-text-2" id="text-2">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">position</th>
+<th scope="col" class="org-right">ease</th>
+<th scope="col" class="org-right">box</th>
+<th scope="col" class="org-right">interval</th>
+<th scope="col" class="org-left">due</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">front</td>
+<td class="org-right">2.50</td>
+<td class="org-right">0</td>
+<td class="org-right">0.00</td>
+<td class="org-left">2025-08-17T13:36:02Z</td>
+</tr>
+</tbody>
+</table>
+<dl class="org-dl">
+<dt>noun phrase</dt><dd>with 6 nominal position classes N1-N6</dd>
+<dt>non-finite verb</dt><dd>with 4 non-finite verbal position classes NV1-NV4</dd>
+<dt>finite verb</dt><dd>with 15 finite verbal position classes V1-V15</dd>
+</dl>
+</div>
+</div>
+<div id="outline-container-org53141af" class="outline-2">
+<h2 id="org53141af"><span class="section-number-2">3.</span> Noun phrase</h2>
+<div class="outline-text-2" id="text-3">
+</div>
+<div id="outline-container-org6d4030c" class="outline-3">
+<h3 id="org6d4030c"><span class="section-number-3">3.1.</span> N1, Head</h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+may be occupied by:
+</p>
+<ul class="org-ul">
+<li>simple nouns,</li>
+<li>compound nouns,</li>
+<li>pronouns,</li>
+<li>nonfinite verbal forms,</li>
+<li>clauses with subordinate finite verbal forms.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org3f959ef" class="outline-3">
+<h3 id="org3f959ef"><span class="section-number-3">3.2.</span> N2, Modifier</h3>
+<div class="outline-text-3" id="text-3-2">
+<p>
+A noun phrase may have more than one modifiers.
+may be occupied by:
+</p>
+<ul class="org-ul">
+<li>non-finite verbal forms,</li>
+<li>relative clauses,</li>
+<li>noun phrases in the genitive case,</li>
+<li>noun phrases in the ablative case,</li>
+<li>cardinal numbers,</li>
+<li>demonstrative pronouns:</li>
+</ul>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">morpheme</th>
+<th scope="col" class="org-left">gloss</th>
+<th scope="col" class="org-left">description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">e</td>
+<td class="org-left">DEM</td>
+<td class="org-left">demonstrative pronoun</td>
+</tr>
+
+<tr>
+<td class="org-left">nee</td>
+<td class="org-left">DEM3</td>
+<td class="org-left">demonstrative pronoun</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="outline-container-orgf549b88" class="outline-3">
+<h3 id="orgf549b88"><span class="section-number-3">3.3.</span> N3, Possesor</h3>
+<div class="outline-text-3" id="text-3-3">
+<p>
+may be occupied by:
+</p>
+<ul class="org-ul">
+<li>a noun phrase in the genitive case,</li>
+<li>an enclitic possessive pronoun standing for a noun phrase in the genitive case:</li>
+</ul>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">morpheme</th>
+<th scope="col" class="org-left">gloss</th>
+<th scope="col" class="org-left">description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">ĝu</td>
+<td class="org-left">1-SG-POSS</td>
+<td class="org-left">1st person sing. poss. enclitic</td>
+</tr>
+
+<tr>
+<td class="org-left">zu</td>
+<td class="org-left">2-SG-POSS</td>
+<td class="org-left">2nd person sing. poss. enclitic</td>
+</tr>
+
+<tr>
+<td class="org-left">ani</td>
+<td class="org-left">3-SG-H-POSS</td>
+<td class="org-left">3rd person sing. human poss. enclitic</td>
+</tr>
+
+<tr>
+<td class="org-left">bi</td>
+<td class="org-left">3-SG-NH-POSS</td>
+<td class="org-left">3rd person sing. non-human poss. enclitic</td>
+</tr>
+
+<tr>
+<td class="org-left">bi</td>
+<td class="org-left">DEM2</td>
+<td class="org-left">demonstrative pronoun</td>
+</tr>
+
+<tr>
+<td class="org-left">me</td>
+<td class="org-left">1-PL-POSS</td>
+<td class="org-left">1st person pl. poss. enclitic</td>
+</tr>
+
+<tr>
+<td class="org-left">zunenee</td>
+<td class="org-left">2-PL-POSS</td>
+<td class="org-left">2nd person pl. poss. enclitic</td>
+</tr>
+
+<tr>
+<td class="org-left">anenee</td>
+<td class="org-left">3-PL-POSS</td>
+<td class="org-left">3rd person pl. poss. enclitic</td>
+</tr>
+</tbody>
+</table>
+<p>
+Double vowels stand for long vowel
+</p>
+</div>
+</div>
+<div id="outline-container-orgf4a2e1b" class="outline-3">
+<h3 id="orgf4a2e1b"><span class="section-number-3">3.4.</span> N4, Plural marker or the ordinal number suffix</h3>
+<div class="outline-text-3" id="text-3-4">
+<p>
+may be occupied by the enclitic plural-marker =/enē/, which is used only
+with noun phrases whose head belongs to the human class, but its use is not
+obligatory.
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">morpheme</th>
+<th scope="col" class="org-left">gloss</th>
+<th scope="col" class="org-left">description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">enee</td>
+<td class="org-left">PL</td>
+<td class="org-left">plural-marker</td>
+</tr>
+
+<tr>
+<td class="org-left">kamak</td>
+<td class="org-left">ORD</td>
+<td class="org-left">ordinal number suffix</td>
+</tr>
+
+<tr>
+<td class="org-left">kama</td>
+<td class="org-left">ORD</td>
+<td class="org-left">later form of the ordinal number suffix</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="outline-container-org6eb64b5" class="outline-3">
+<h3 id="org6eb64b5"><span class="section-number-3">3.5.</span> N5, Case-marker</h3>
+<div class="outline-text-3" id="text-3-5">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">morpheme</th>
+<th scope="col" class="org-left">gloss</th>
+<th scope="col" class="org-left">description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">ø</td>
+<td class="org-left">ABS</td>
+<td class="org-left">absolutive case-marker</td>
+</tr>
+
+<tr>
+<td class="org-left">e</td>
+<td class="org-left">ERG</td>
+<td class="org-left">ergative case-marker</td>
+</tr>
+
+<tr>
+<td class="org-left">ra</td>
+<td class="org-left">DAT-H</td>
+<td class="org-left">human dative case-marker</td>
+</tr>
+
+<tr>
+<td class="org-left">e</td>
+<td class="org-left">DAT-NH</td>
+<td class="org-left">non-human dative case-marker</td>
+</tr>
+
+<tr>
+<td class="org-left">da</td>
+<td class="org-left">COM</td>
+<td class="org-left">comitative case-marker</td>
+</tr>
+
+<tr>
+<td class="org-left">ta</td>
+<td class="org-left">ABL</td>
+<td class="org-left">ablative case-marker</td>
+</tr>
+
+<tr>
+<td class="org-left">še</td>
+<td class="org-left">TERM</td>
+<td class="org-left">terminative case-marker</td>
+</tr>
+
+<tr>
+<td class="org-left">'a</td>
+<td class="org-left">L1</td>
+<td class="org-left">locative1 case-marker</td>
+</tr>
+
+<tr>
+<td class="org-left">ra</td>
+<td class="org-left">L2-H</td>
+<td class="org-left">human locative2 case-marker</td>
+</tr>
+
+<tr>
+<td class="org-left">'a</td>
+<td class="org-left">L2-NH</td>
+<td class="org-left">non-human locative2 case-marker</td>
+</tr>
+
+<tr>
+<td class="org-left">ra</td>
+<td class="org-left">L3-H</td>
+<td class="org-left">human locative3 case-marker</td>
+</tr>
+
+<tr>
+<td class="org-left">e</td>
+<td class="org-left">L3-NH</td>
+<td class="org-left">non-human locative3 case-marker</td>
+</tr>
+
+<tr>
+<td class="org-left">ak</td>
+<td class="org-left">GEN</td>
+<td class="org-left">genitive case-marker</td>
+</tr>
+
+<tr>
+<td class="org-left">gin</td>
+<td class="org-left">EQU</td>
+<td class="org-left">equative case-marker</td>
+</tr>
+
+<tr>
+<td class="org-left">ne</td>
+<td class="org-left">L4</td>
+<td class="org-left">locative4 case-marker (archaic)</td>
+</tr>
+
+<tr>
+<td class="org-left">eš</td>
+<td class="org-left">ADV</td>
+<td class="org-left">adverbiative suffix (derivative morpheme)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="outline-container-org78eb279" class="outline-3">
+<h3 id="org78eb279"><span class="section-number-3">3.6.</span> N6, Copula</h3>
+<div class="outline-text-3" id="text-3-6">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">morpheme</th>
+<th scope="col" class="org-left">gloss</th>
+<th scope="col" class="org-left">description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">men</td>
+<td class="org-left">COP-1-SG</td>
+<td class="org-left">first person singular enclitic copula</td>
+</tr>
+
+<tr>
+<td class="org-left">men</td>
+<td class="org-left">COP-2-SG</td>
+<td class="org-left">second person singular enclitic copula</td>
+</tr>
+
+<tr>
+<td class="org-left">am</td>
+<td class="org-left">COP-3-SG</td>
+<td class="org-left">third person singular enclitic copula</td>
+</tr>
+
+<tr>
+<td class="org-left">menden</td>
+<td class="org-left">COP-1-PL</td>
+<td class="org-left">first person plural enclitic copula</td>
+</tr>
+
+<tr>
+<td class="org-left">menzen</td>
+<td class="org-left">COP-2-PL</td>
+<td class="org-left">second person plural enclitic copula</td>
+</tr>
+
+<tr>
+<td class="org-left">meš</td>
+<td class="org-left">COP-3-PL</td>
+<td class="org-left">third person plural enclitic copula</td>
+</tr>
+
+<tr>
+<td class="org-left">nanna</td>
+<td class="org-left">EXCEPT</td>
+<td class="org-left">an exception to a negative statement</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div id="outline-container-org34fc7e3" class="outline-2">
+<h2 id="org34fc7e3"><span class="section-number-2">4.</span> Non-finite verb</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+Remark1: A non-finite verbal form may occupy either N1 or N2. In the first case it functions as a Noun, while in the second case it functions as a modifier. So called adjectives are considered non-finite verbal forms.
+Remark2: Just like non-finite verbal forms, cardinal numbers may be used both as modifiers and nouns, they will thus be inserted in the non-finite verbal template.
+</p>
+</div>
+<div id="outline-container-org60a9aa6" class="outline-3">
+<h3 id="org60a9aa6"><span class="section-number-3">4.1.</span> NV1, negative prefix</h3>
+<div class="outline-text-3" id="text-4-1">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">morhpheme</th>
+<th scope="col" class="org-left">gloss</th>
+<th scope="col" class="org-left">description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">nu</td>
+<td class="org-left">NEG</td>
+<td class="org-left">negative prefix</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="outline-container-orgc226add" class="outline-3">
+<h3 id="orgc226add"><span class="section-number-3">4.2.</span> NV2, stem</h3>
+<div class="outline-text-3" id="text-4-2">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">morhpheme</th>
+<th scope="col" class="org-left">gloss</th>
+<th scope="col" class="org-left">description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">CF</td>
+<td class="org-left">STEM</td>
+<td class="org-left">verbal stem</td>
+</tr>
+
+<tr>
+<td class="org-left">CF</td>
+<td class="org-left">STEM-PF</td>
+<td class="org-left">present-future verbal stem</td>
+</tr>
+
+<tr>
+<td class="org-left">CF</td>
+<td class="org-left">STEM-PL</td>
+<td class="org-left">plural verbal stem</td>
+</tr>
+
+<tr>
+<td class="org-left">CF</td>
+<td class="org-left">STEM-RDP</td>
+<td class="org-left">reduplicated verbal stem</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="outline-container-orgd4500bd" class="outline-3">
+<h3 id="orgd4500bd"><span class="section-number-3">4.3.</span> NV3, present-future marker</h3>
+<div class="outline-text-3" id="text-4-3">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">morhpheme</th>
+<th scope="col" class="org-left">gloss</th>
+<th scope="col" class="org-left">description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">ed</td>
+<td class="org-left">PF</td>
+<td class="org-left">presen-future marker</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="outline-container-orgec7309d" class="outline-3">
+<h3 id="orgec7309d"><span class="section-number-3">4.4.</span> NV4, subordinator</h3>
+<div class="outline-text-3" id="text-4-4">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">morhpheme</th>
+<th scope="col" class="org-left">gloss</th>
+<th scope="col" class="org-left">description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">'a</td>
+<td class="org-left">SUB</td>
+<td class="org-left">subordinator</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Remark1: Basically we have 3 + 1 actual forms that should be generated: LAL, LAL-ed, LAL-a, and LAL-ed-a. The fourth form is marginal occurs only in the so called "pronominal conjugation", for example, STEM-ed-a-ĝu-ne.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orge049755" class="outline-2">
+<h2 id="orge049755"><span class="section-number-2">5.</span> Finite verb</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+Compare also (Jagersma, Bram, 2010 page 743)
+</p>
+</div>
+<div id="outline-container-orgd738c0f" class="outline-3">
+<h3 id="orgd738c0f"><span class="section-number-3">5.1.</span> V1, The modal prefix ha-, negative prefix nu-, prefix of anteriority</h3>
+<div class="outline-text-3" id="text-5-1">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">morhpheme</th>
+<th scope="col" class="org-left">gloss</th>
+<th scope="col" class="org-left">description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">nu</td>
+<td class="org-left">NEG</td>
+<td class="org-left">negative prefix</td>
+</tr>
+
+<tr>
+<td class="org-left">ha</td>
+<td class="org-left">MOD1</td>
+<td class="org-left">modal1 prefix</td>
+</tr>
+
+<tr>
+<td class="org-left">u</td>
+<td class="org-left">ANT</td>
+<td class="org-left">prefix of anteriority</td>
+</tr>
+
+<tr>
+<td class="org-left">CF</td>
+<td class="org-left">STEM</td>
+<td class="org-left">verbal stem</td>
+</tr>
+
+<tr>
+<td class="org-left">CF</td>
+<td class="org-left">STEM-PL</td>
+<td class="org-left">plural verbal stem</td>
+</tr>
+
+<tr>
+<td class="org-left">CF</td>
+<td class="org-left">STEM-RDP</td>
+<td class="org-left">reduplicated verbal stem</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="outline-container-org14c3c2e" class="outline-3">
+<h3 id="org14c3c2e"><span class="section-number-3">5.2.</span> V2, Modal prefixes other than ha-, the finite-marker prefixes</h3>
+<div class="outline-text-3" id="text-5-2">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">morhpheme</th>
+<th scope="col" class="org-left">gloss</th>
+<th scope="col" class="org-left">description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">ga</td>
+<td class="org-left">MOD2</td>
+<td class="org-left">modal2 prefix</td>
+</tr>
+
+<tr>
+<td class="org-left">nan</td>
+<td class="org-left">MOD3</td>
+<td class="org-left">modal3 prefix</td>
+</tr>
+
+<tr>
+<td class="org-left">bara</td>
+<td class="org-left">MOD4</td>
+<td class="org-left">modal4 prefix</td>
+</tr>
+
+<tr>
+<td class="org-left">nuš</td>
+<td class="org-left">MOD5</td>
+<td class="org-left">modal5 prefix</td>
+</tr>
+
+<tr>
+<td class="org-left">ši</td>
+<td class="org-left">MOD6</td>
+<td class="org-left">modal6 prefix</td>
+</tr>
+
+<tr>
+<td class="org-left">na</td>
+<td class="org-left">MOD7</td>
+<td class="org-left">modal7 prefix</td>
+</tr>
+
+<tr>
+<td class="org-left">i</td>
+<td class="org-left">FIN</td>
+<td class="org-left">finite-marker</td>
+</tr>
+
+<tr>
+<td class="org-left">ii</td>
+<td class="org-left">FIN-L1</td>
+<td class="org-left">lenghtened finite-marker signaling L1</td>
+</tr>
+
+<tr>
+<td class="org-left">ii</td>
+<td class="org-left">FIN-L2</td>
+<td class="org-left">lenghtened finite-marker signaling L2</td>
+</tr>
+
+<tr>
+<td class="org-left">a</td>
+<td class="org-left">FIN</td>
+<td class="org-left">finite-marker</td>
+</tr>
+
+<tr>
+<td class="org-left">aa</td>
+<td class="org-left">FIN-L2</td>
+<td class="org-left">lenghtened finite-marker signaling L2</td>
+</tr>
+
+<tr>
+<td class="org-left">al</td>
+<td class="org-left">FIN</td>
+<td class="org-left">finite-marker</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+lenghtened finite-marker signaling the syncopation of the vowel of the L1/L2 prefix
+Remark1: The compensatory lenghtening of the finite marker occurs when the L2 prefix in V10 (preceded by a pronominal prefix in either V5 or V6) or the vowel of the L1 prefix becomes syncopated. In these verbal forms the lenghtening of FIN is considered and glossed as the marker of L2. (Cf. Jagersma 2006)
+</p>
+</div>
+</div>
+<div id="outline-container-orgba90a1e" class="outline-3">
+<h3 id="orgba90a1e"><span class="section-number-3">5.3.</span> V3, Coordinator prefix</h3>
+<div class="outline-text-3" id="text-5-3">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">morhpheme</th>
+<th scope="col" class="org-left">gloss</th>
+<th scope="col" class="org-left">description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">nga</td>
+<td class="org-left">COOR</td>
+<td class="org-left">coordinator prefix</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="outline-container-org66fc00d" class="outline-3">
+<h3 id="org66fc00d"><span class="section-number-3">5.4.</span> V4, Ventive (cislocative) prefix</h3>
+<div class="outline-text-3" id="text-5-4">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">morhpheme</th>
+<th scope="col" class="org-left">gloss</th>
+<th scope="col" class="org-left">description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">m</td>
+<td class="org-left">VEN</td>
+<td class="org-left">ventive (cislocative) prefix</td>
+</tr>
+
+<tr>
+<td class="org-left">mu</td>
+<td class="org-left">VEN</td>
+<td class="org-left">ventive (cislocative) prefix</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="outline-container-orgbde4300" class="outline-3">
+<h3 id="orgbde4300"><span class="section-number-3">5.5.</span> V5, Middle prefix or 3nh pronominal prefix (specifying the person, gender and number of the first in the sequence of dimensional prefixes)</h3>
+<div class="outline-text-3" id="text-5-5">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">morhpheme</th>
+<th scope="col" class="org-left">gloss</th>
+<th scope="col" class="org-left">description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">ba</td>
+<td class="org-left">MID</td>
+<td class="org-left">middle prefix</td>
+</tr>
+
+<tr>
+<td class="org-left">b</td>
+<td class="org-left">3-NH</td>
+<td class="org-left">3rd sng. non-hum. IPP</td>
+</tr>
+</tbody>
+</table>
+<p>
+IPP = initial pronominal prefix
+</p>
+</div>
+</div>
+<div id="outline-container-org470142a" class="outline-3">
+<h3 id="org470142a"><span class="section-number-3">5.6.</span> V6, Initial Pronominal prefix (specifying the person, gender and number of the first in the sequence of dimensional prefixes)x</h3>
+<div class="outline-text-3" id="text-5-6">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">morhpheme</th>
+<th scope="col" class="org-left">gloss</th>
+<th scope="col" class="org-left">description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">1</td>
+<td class="org-left">1-SG</td>
+<td class="org-left">1st person IPP</td>
+</tr>
+
+<tr>
+<td class="org-left">r</td>
+<td class="org-left">2-SG</td>
+<td class="org-left">second person singular IPP</td>
+</tr>
+
+<tr>
+<td class="org-left">e</td>
+<td class="org-left">2-SG</td>
+<td class="org-left">second person singular IPP</td>
+</tr>
+
+<tr>
+<td class="org-left">nn</td>
+<td class="org-left">3-SG-H</td>
+<td class="org-left">third person singular human IPP</td>
+</tr>
+
+<tr>
+<td class="org-left">mee</td>
+<td class="org-left">1-PL</td>
+<td class="org-left">first person plural IPP</td>
+</tr>
+
+<tr>
+<td class="org-left">nnee</td>
+<td class="org-left">3-PL</td>
+<td class="org-left">third person plural IPP</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="outline-container-orgd94515c" class="outline-3">
+<h3 id="orgd94515c"><span class="section-number-3">5.7.</span> V7, Dimensional I: dative prefix</h3>
+<div class="outline-text-3" id="text-5-7">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">morhpheme</th>
+<th scope="col" class="org-left">gloss</th>
+<th scope="col" class="org-left">description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">a</td>
+<td class="org-left">DAT</td>
+<td class="org-left">dative prefix</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="outline-container-org0865761" class="outline-3">
+<h3 id="org0865761"><span class="section-number-3">5.8.</span> V8, Dimensional II: comitative prefix</h3>
+<div class="outline-text-3" id="text-5-8">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">morhpheme</th>
+<th scope="col" class="org-left">gloss</th>
+<th scope="col" class="org-left">description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">da</td>
+<td class="org-left">COM</td>
+<td class="org-left">comitative prefix</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="outline-container-org7812ebe" class="outline-3">
+<h3 id="org7812ebe"><span class="section-number-3">5.9.</span> V9, Dimensional III: ablative or terminative prefix</h3>
+<div class="outline-text-3" id="text-5-9">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">morhpheme</th>
+<th scope="col" class="org-left">gloss</th>
+<th scope="col" class="org-left">description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">ta</td>
+<td class="org-left">ABL</td>
+<td class="org-left">ablative prefix</td>
+</tr>
+
+<tr>
+<td class="org-left">ši</td>
+<td class="org-left">TERM</td>
+<td class="org-left">terminative prefix</td>
+</tr>
+
+<tr>
+<td class="org-left">še</td>
+<td class="org-left">TERM</td>
+<td class="org-left">terminative prefix</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="outline-container-orgfe0feb6" class="outline-3">
+<h3 id="orgfe0feb6"><span class="section-number-3">5.10.</span> V10, Dimensional IV: locative1, locative2, or locative3 prefix</h3>
+<div class="outline-text-3" id="text-5-10">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">morhpheme</th>
+<th scope="col" class="org-left">gloss</th>
+<th scope="col" class="org-left">description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">ni</td>
+<td class="org-left">L1</td>
+<td class="org-left">locative1 prefix</td>
+</tr>
+
+<tr>
+<td class="org-left">ni</td>
+<td class="org-left">LOC-OB</td>
+<td class="org-left">locative prefix used as causative marker in OB texts</td>
+</tr>
+
+<tr>
+<td class="org-left">n</td>
+<td class="org-left">L1-SYN</td>
+<td class="org-left">syncopated locative1 prefix</td>
+</tr>
+
+<tr>
+<td class="org-left">i</td>
+<td class="org-left">L2</td>
+<td class="org-left">locative2 prefix</td>
+</tr>
+
+<tr>
+<td class="org-left">e</td>
+<td class="org-left">L2</td>
+<td class="org-left">locative2 prefix</td>
+</tr>
+
+<tr>
+<td class="org-left">ø</td>
+<td class="org-left">L2-SYN</td>
+<td class="org-left">syncopated locative2 prefix</td>
+</tr>
+
+<tr>
+<td class="org-left">i</td>
+<td class="org-left">L3</td>
+<td class="org-left">locative3 prefix</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Remark1: A form like i₃-ib₂-ĝal₂ will thus be analyzed as
+M1: V1=ii.V5=b.V10=ø.V12=ĝal.V14=ø
+M2: V1=FIN-L2.V5=3-NH.V10=L2-SYN.V12=STEM.V14=3-SG-S
+</p>
+</div>
+</div>
+<div id="outline-container-orgc4db2b5" class="outline-3">
+<h3 id="orgc4db2b5"><span class="section-number-3">5.11.</span> V11, Final Pronominal prefix (referring to A or P, depending on the tense)</h3>
+<div class="outline-text-3" id="text-5-11">
+<p>
+FPP = final pronominal prefix 
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">morhpheme</th>
+<th scope="col" class="org-left">gloss</th>
+<th scope="col" class="org-left">description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">1</td>
+<td class="org-left">1-SG-A</td>
+<td class="org-left">1st per sngl FPP construed with an agent</td>
+</tr>
+
+<tr>
+<td class="org-left">e</td>
+<td class="org-left">2-SG-A</td>
+<td class="org-left">2nd per sngl FPP construed with an agent</td>
+</tr>
+
+<tr>
+<td class="org-left">n</td>
+<td class="org-left">3-SG-H-A</td>
+<td class="org-left">3rd per sngl human FPP construed with an agent</td>
+</tr>
+
+<tr>
+<td class="org-left">n</td>
+<td class="org-left">3-SG-H-P</td>
+<td class="org-left">3rd per sngl human FPP construed with a patient</td>
+</tr>
+
+<tr>
+<td class="org-left">n</td>
+<td class="org-left">3-SG-H-L3</td>
+<td class="org-left">3rd per sngl human FPP construed with a participant in L3</td>
+</tr>
+
+<tr>
+<td class="org-left">n</td>
+<td class="org-left">1-SG-A-OB</td>
+<td class="org-left">1st per sngl FPP construed with an agent in OB texts</td>
+</tr>
+
+<tr>
+<td class="org-left">b</td>
+<td class="org-left">3-SG-NH-A</td>
+<td class="org-left">3rd per sngl non-human FPP construed with an agent</td>
+</tr>
+
+<tr>
+<td class="org-left">b</td>
+<td class="org-left">3-SG-NH-P</td>
+<td class="org-left">3rd per sngl non-human FPP construed with a patient</td>
+</tr>
+
+<tr>
+<td class="org-left">b</td>
+<td class="org-left">3-SG-NH-L3</td>
+<td class="org-left">3rd per sngl non-human FPP construed with a participant in L3</td>
+</tr>
+
+<tr>
+<td class="org-left">nnee</td>
+<td class="org-left">3-PL-H-P</td>
+<td class="org-left">3rd person plural human FPP construed with a patient</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="outline-container-org039c655" class="outline-3">
+<h3 id="org039c655"><span class="section-number-3">5.12.</span> V12, stem</h3>
+<div class="outline-text-3" id="text-5-12">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">morhpheme</th>
+<th scope="col" class="org-left">gloss</th>
+<th scope="col" class="org-left">description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">CF</td>
+<td class="org-left">STEM</td>
+<td class="org-left">verbal stem</td>
+</tr>
+
+<tr>
+<td class="org-left">CF</td>
+<td class="org-left">STEM-PF</td>
+<td class="org-left">present-future verbal stem</td>
+</tr>
+
+<tr>
+<td class="org-left">CF</td>
+<td class="org-left">STEM-PL</td>
+<td class="org-left">plural verbal stem</td>
+</tr>
+
+<tr>
+<td class="org-left">CF</td>
+<td class="org-left">STEM-RDP</td>
+<td class="org-left">reduplicated verbal stem</td>
+</tr>
+
+<tr>
+<td class="org-left">CF</td>
+<td class="org-left">COP</td>
+<td class="org-left">the independent copula</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Remark1: These can be combined, so for example sub2 is STEM-PF-PL, i.e. present-future plural stem of go. The order of qualifying glosses should follow this table (so sub2 may only be glossed as before but not as STEM-PL-PF).
+Remark2: Unlike in The Penn Parsed Corpus of Sumerian, ETCSRI will not have a special template with special slots for imperative verbal forms: in imperative verbal forms the verbal stem is assumed to occupy V1.
+</p>
+</div>
+</div>
+<div id="outline-container-org7ca8de0" class="outline-3">
+<h3 id="org7ca8de0"><span class="section-number-3">5.13.</span> V13, present-future marker (in intransitive verbs)</h3>
+<div class="outline-text-3" id="text-5-13">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">morhpheme</th>
+<th scope="col" class="org-left">gloss</th>
+<th scope="col" class="org-left">description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">ed</td>
+<td class="org-left">PF</td>
+<td class="org-left">present-future marker</td>
+</tr>
+
+<tr>
+<td class="org-left">en</td>
+<td class="org-left">PLEN</td>
+<td class="org-left">verbal suffix marking the plurality of S or P</td>
+</tr>
+</tbody>
+</table>
+<p>
+Remark: PLEN is attested only rarely (cf. Krecher 1965 and 1987).
+</p>
+</div>
+</div>
+<div id="outline-container-orgbb3feb3" class="outline-3">
+<h3 id="orgbb3feb3"><span class="section-number-3">5.14.</span> V14, pronominal suffix (referring A, S, or P depending on the tense)</h3>
+<div class="outline-text-3" id="text-5-14">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">morhpheme</th>
+<th scope="col" class="org-left">gloss</th>
+<th scope="col" class="org-left">description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">en</td>
+<td class="org-left">1-SG-A</td>
+<td class="org-left">first person singular agent suffix</td>
+</tr>
+
+<tr>
+<td class="org-left">en</td>
+<td class="org-left">1-SG-S</td>
+<td class="org-left">first person singular subject suffix</td>
+</tr>
+
+<tr>
+<td class="org-left">en</td>
+<td class="org-left">1-SG-P</td>
+<td class="org-left">first person singular patient suffix</td>
+</tr>
+
+<tr>
+<td class="org-left">en</td>
+<td class="org-left">2-SG-A</td>
+<td class="org-left">second person singular agent suffix</td>
+</tr>
+
+<tr>
+<td class="org-left">en</td>
+<td class="org-left">2-SG-S</td>
+<td class="org-left">second person singular subject suffix</td>
+</tr>
+
+<tr>
+<td class="org-left">en</td>
+<td class="org-left">2-SG-P</td>
+<td class="org-left">second person singular patient suffix</td>
+</tr>
+
+<tr>
+<td class="org-left">ø</td>
+<td class="org-left">3-SG-S</td>
+<td class="org-left">third person singular human or non-human subject suffix</td>
+</tr>
+
+<tr>
+<td class="org-left">ø</td>
+<td class="org-left">3-SG-P</td>
+<td class="org-left">third person singular human or non-human subject suffix (df)</td>
+</tr>
+
+<tr>
+<td class="org-left">e</td>
+<td class="org-left">3-SG-A</td>
+<td class="org-left">third person singular human or non-human agent suffix</td>
+</tr>
+
+<tr>
+<td class="org-left">e</td>
+<td class="org-left">3-SG-S-OB</td>
+<td class="org-left">third person singular human or non-human subject suffix in OB texts</td>
+</tr>
+
+<tr>
+<td class="org-left">enden</td>
+<td class="org-left">1-PL-A</td>
+<td class="org-left">first person plural agent suffix</td>
+</tr>
+
+<tr>
+<td class="org-left">enden</td>
+<td class="org-left">1-PL-S</td>
+<td class="org-left">first person plural subject suffix (df)</td>
+</tr>
+
+<tr>
+<td class="org-left">enden</td>
+<td class="org-left">1-PL</td>
+<td class="org-left">first person plural suffix in plural transitive preterite verbal forms</td>
+</tr>
+
+<tr>
+<td class="org-left">enzen</td>
+<td class="org-left">2-PL-A</td>
+<td class="org-left">second person plural agent suffix</td>
+</tr>
+
+<tr>
+<td class="org-left">enzen</td>
+<td class="org-left">2-PL-S</td>
+<td class="org-left">second person plural subject suffix (df)</td>
+</tr>
+
+<tr>
+<td class="org-left">enzen</td>
+<td class="org-left">2-PL</td>
+<td class="org-left">second person plural suffix in plural transitive preterite verbal forms</td>
+</tr>
+
+<tr>
+<td class="org-left">eš</td>
+<td class="org-left">3-PL-S</td>
+<td class="org-left">second person plural subject suffix</td>
+</tr>
+
+<tr>
+<td class="org-left">eš</td>
+<td class="org-left">3-PL-P</td>
+<td class="org-left">second person plural patient suffix (df)</td>
+</tr>
+
+<tr>
+<td class="org-left">eš</td>
+<td class="org-left">3-PL</td>
+<td class="org-left">third person plural suffix in plural transitive preterite verbal forms (df)</td>
+</tr>
+
+<tr>
+<td class="org-left">enee</td>
+<td class="org-left">3-PL-A</td>
+<td class="org-left">third person plural agent suffix in present-future verbal forms</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Remark1: In transitive preterite forms the plural agents are cross-referenced with a periphrastic construction involving the use of two affixes: the singular form of an FPP in V11 and the plural form of a pronominal suffix in V14, that is the FPP in V11 agrees in gender and person, while the suffix in V14 agrees in number and person with the agent. In these forms the suffix in V14 will be glossed as 1-PL, 2-PL, or 3-PL, i.e. without specifying its syntactic function, e.g.: &#x2026;-3-SG-H-A-stem-3-PL
+</p>
+</div>
+</div>
+<div id="outline-container-orgb07a7be" class="outline-3">
+<h3 id="orgb07a7be"><span class="section-number-3">5.15.</span> V15, Subordinator</h3>
+<div class="outline-text-3" id="text-5-15">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">morhpheme</th>
+<th scope="col" class="org-left">gloss</th>
+<th scope="col" class="org-left">description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">'a</td>
+<td class="org-left">SUB</td>
+<td class="org-left">subordinator</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div id="outline-container-org4cdeeb0" class="outline-2">
+<h2 id="org4cdeeb0"><span class="section-number-2">6.</span> sources</h2>
+<div class="outline-text-2" id="text-6">
+<p>
+<a href="https://oracc.museum.upenn.edu/etcsri/Parsing/index.html">https://oracc.museum.upenn.edu/etcsri/Parsing/index.html</a>
+<a href="https://oracc.museum.upenn.edu/etcsri/Glossing/index.html">https://oracc.museum.upenn.edu/etcsri/Glossing/index.html</a>
+Sumerisch (revised version) by Gábor Zólyomi 2021, In M. Streck, ed., Schriften und Sprachen des Alten Orients. 4th, revised, enlarged edition, Darmstadt: Wissenschaftliche Buchgesellschaft 2021, 31–64.
+Lehmann, Ch. (2004), 'Interlinear Morphemic Glossing', in Geert Booij et al. (eds.), Morphologie. Ein internationales Handbuch zur Flexion und Wortbildung, II. Halbband (Handbücher der Sprach- und Kommunikationswissenschaft, 17, II). Berlin- W. de Gruyter, 1834–1857.
+AN INTRODUCTION TO THE GRAMMAR OF SUMERIAN Gábor Zólyomi 2017
+Stump, Gregory (1998), 'Inflection', in A. Spencer and A. Zwicky, eds., The Handbook of Morphology. Oxford: Blackwell Publishing Ltd., 13–43.
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Michał Kluz</p>
+<p class="date">Created: 2025-08-17 Sun 15:45</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
