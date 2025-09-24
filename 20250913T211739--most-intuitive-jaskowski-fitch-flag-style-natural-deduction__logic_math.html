@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-09-17 Wed 17:11 -->
+<!-- 2025-09-24 Wed 12:18 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Most intuitive Jaskowski Fitch Flag style natural deduction</title>
@@ -201,23 +201,23 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgce39309">1. Examples</a></li>
-<li><a href="#org93c2343">2. Rules</a>
+<li><a href="#org28bfd37">1. Examples</a></li>
+<li><a href="#org7b534d6">2. Rules</a>
 <ul>
-<li><a href="#org09aac36">2.1. &rarr;I</a></li>
-<li><a href="#org1e3717d">2.2. &rarr;E</a></li>
-<li><a href="#org27acc9d">2.3. &and;I</a></li>
-<li><a href="#org70135dd">2.4. &and;E</a></li>
-<li><a href="#org1bd9b87">2.5. &or;I</a></li>
-<li><a href="#org17270cc">2.6. &or;E</a></li>
-<li><a href="#org83e6c76">2.7. &harr;I</a></li>
-<li><a href="#orgf0fdf16">2.8. &harr;E</a></li>
-<li><a href="#org41996c1">2.9. &not;I</a></li>
-<li><a href="#orgbf35f54">2.10. &not;E</a></li>
-<li><a href="#orgb01f4fe">2.11. &exist;I</a></li>
+<li><a href="#orgde82229">2.1. &rarr;I</a></li>
+<li><a href="#org25b143d">2.2. &rarr;E</a></li>
+<li><a href="#org1d16c98">2.3. &and;I</a></li>
+<li><a href="#orgd6bac23">2.4. &and;E</a></li>
+<li><a href="#orgcc4ea0c">2.5. &or;I</a></li>
+<li><a href="#orgfd30236">2.6. &or;E</a></li>
+<li><a href="#org7f91a8d">2.7. &harr;I</a></li>
+<li><a href="#org840bc4a">2.8. &harr;E</a></li>
+<li><a href="#orgf636d7a">2.9. &not;I</a></li>
+<li><a href="#orgdf52f73">2.10. &not;E</a></li>
+<li><a href="#org3606f43">2.11. &exist;I</a></li>
 </ul>
 </li>
-<li><a href="#org9d0d2cb">3. <span class="todo TODO">TODO</span> finish the rules and make into anki</a></li>
+<li><a href="#org92e4451">3. <span class="todo TODO">TODO</span> finish the rules and make into anki</a></li>
 </ul>
 </div>
 </div>
@@ -227,56 +227,56 @@
 allow using the assumptions in deeper subproofs without the need to repeat
 The vertical lines can be marked only by indententation, no need for "|"
 </p>
-<div id="outline-container-orgce39309" class="outline-2">
-<h2 id="orgce39309"><span class="section-number-2">1.</span> Examples</h2>
+<div id="outline-container-org28bfd37" class="outline-2">
+<h2 id="org28bfd37"><span class="section-number-2">1.</span> Examples</h2>
 <div class="outline-text-2" id="text-1">
 <p>
-1|  |<sup>1</sup>  P ass
-2|  |<sub>1</sub>  P reit
-3|  P&rarr;P
+1|  |<sup>1</sup>  P ass         <br />
+2|  |<sub>1</sub>  P reit        <br />
+3|  P&rarr;P               <br />
 </p>
 
 <p>
-1 |  |<sup>1</sup> A&and;B   ass
-2 |  |  A    &and;E left 1
-3 |  |  B    &and;E right 1
-4 |  |<sub>1</sub> B&and;A   &and;I 3,2
-5 |  A&and;B&rarr;B&and;A  &rarr;I 1-4
-6 |  |<sup>6</sup> B&and;A   ass
-7 |  |  B    &and;E left 6
-8 |  |  A    &and;E right 6
-9 |  |<sub>6</sub> A&and;B   &and;I 8,7
-10|  B&and;A&rarr;A&and;B  &rarr;I 6-9
-11|  A&and;B&harr;B&and;A  &harr;I 5,10
+1 |  |<sup>1</sup> A&and;B   ass           <br />
+2 |  |  A    &and;E left 1      <br />
+3 |  |  B    &and;E right 1     <br />
+4 |  |<sub>1</sub> B&and;A   &and;I 3,2        <br />
+5 |  A&and;B&rarr;B&and;A  &rarr;I 1-4        <br />
+6 |  |<sup>6</sup> B&and;A   ass           <br />
+7 |  |  B    &and;E left 6      <br />
+8 |  |  A    &and;E right 6     <br />
+9 |  |<sub>6</sub> A&and;B   &and;I 8,7        <br />
+10|  B&and;A&rarr;A&and;B  &rarr;I 6-9        <br />
+11|  A&and;B&harr;B&and;A  &harr;I 5,10       <br />
 </p>
 
 
 <p>
-1 |  |<sup>1</sup>  A&or;(B&or;C)         ass
-2 |  |  |<sup>2</sup>   A          ass
-3 |  |  |   A&or;B         &or;I left 2, B
-4 |  |  |<sub>2</sub>  (A&or;B)&or;C     &or;I left 3, C
-5 |  |  |<sup>5</sup>  (B&or;C)       ass
-6 |  |  |  |<sup>6</sup>   B       ass
-7 |  |  |  |    A&or;B     &or;I right A, 6
-8 |  |  |  |<sub>6</sub>  (A&or;B)&or;C  &or;I left 7,C
-9 |  |  |  |<sup>9</sup>   C       ass
-10|  |  |  |<sub>9</sub>  (A&or;B)&or;C  &or;I right A&or;B, 9
-11|  |  |<sub>5</sub>  (A&or;B)&or;C     &or;E 6-8, 9-10
-12|  |<sub>1</sub> (A&or;B)&or;C         &or;E 2-4, 5-11
-13| A&or;(B&or;C)&rarr;(A&or;B)&or;C     &rarr;I 1-12
+1 |  |<sup>1</sup>  A&or;(B&or;C)         ass                <br />
+2 |  |  |<sup>2</sup>   A          ass                 <br />
+3 |  |  |   A&or;B         &or;I left 2, B        <br />
+4 |  |  |<sub>2</sub>  (A&or;B)&or;C     &or;I left 3, C        <br />
+5 |  |  |<sup>5</sup>  (B&or;C)       ass                 <br />
+6 |  |  |  |<sup>6</sup>   B       ass                 <br />
+7 |  |  |  |    A&or;B     &or;I right A, 6       <br />
+8 |  |  |  |<sub>6</sub>  (A&or;B)&or;C  &or;I left 7,C         <br />
+9 |  |  |  |<sup>9</sup>   C       ass                 <br />
+10|  |  |  |<sub>9</sub>  (A&or;B)&or;C  &or;I right A&or;B, 9     <br />
+11|  |  |<sub>5</sub>  (A&or;B)&or;C     &or;E 6-8, 9-10        <br />
+12|  |<sub>1</sub> (A&or;B)&or;C         &or;E 2-4, 5-11        <br />
+13| A&or;(B&or;C)&rarr;(A&or;B)&or;C     &rarr;I 1-12             <br />
 </p>
 </div>
 </div>
-<div id="outline-container-org93c2343" class="outline-2">
-<h2 id="org93c2343"><span class="section-number-2">2.</span> Rules</h2>
+<div id="outline-container-org7b534d6" class="outline-2">
+<h2 id="org7b534d6"><span class="section-number-2">2.</span> Rules</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 The last line can be adjoint if the previous are in the proof
 </p>
 </div>
-<div id="outline-container-org09aac36" class="outline-3">
-<h3 id="org09aac36"><span class="section-number-3">2.1.</span> &rarr;I</h3>
+<div id="outline-container-orgde82229" class="outline-3">
+<h3 id="orgde82229"><span class="section-number-3">2.1.</span> &rarr;I</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 i&emsp; |&emsp;|<sup>i</sup> A &emsp;&emsp;&emsp;  ass        <br />
@@ -285,8 +285,8 @@ j+1| A&rarr;B  &emsp;&emsp;&emsp; &rarr;I i-j
 </p>
 </div>
 </div>
-<div id="outline-container-org1e3717d" class="outline-3">
-<h3 id="org1e3717d"><span class="section-number-3">2.2.</span> &rarr;E</h3>
+<div id="outline-container-org25b143d" class="outline-3">
+<h3 id="org25b143d"><span class="section-number-3">2.2.</span> &rarr;E</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 i&emsp; |  A&rarr;B                  <br />
@@ -301,8 +301,8 @@ l&emsp;|&emsp;|&emsp;|  B &emsp;&emsp;    &rarr;E j,i <br />
 </p>
 </div>
 </div>
-<div id="outline-container-org27acc9d" class="outline-3">
-<h3 id="org27acc9d"><span class="section-number-3">2.3.</span> &and;I</h3>
+<div id="outline-container-org1d16c98" class="outline-3">
+<h3 id="org1d16c98"><span class="section-number-3">2.3.</span> &and;I</h3>
 <div class="outline-text-3" id="text-2-3">
 <p>
 i&emsp;|  A                         <br />
@@ -317,8 +317,8 @@ l&emsp;|&emsp;|&emsp;|  B&and;A &emsp;&emsp; &and;I  j,i        <br />
 </p>
 </div>
 </div>
-<div id="outline-container-org70135dd" class="outline-3">
-<h3 id="org70135dd"><span class="section-number-3">2.4.</span> &and;E</h3>
+<div id="outline-container-orgd6bac23" class="outline-3">
+<h3 id="orgd6bac23"><span class="section-number-3">2.4.</span> &and;E</h3>
 <div class="outline-text-3" id="text-2-4">
 <p>
 i&emsp;|  A&and;B                       <br />
@@ -331,8 +331,8 @@ j&emsp;|&emsp;|  B &emsp;&emsp;   &and;Er i              <br />
 </p>
 </div>
 </div>
-<div id="outline-container-org1bd9b87" class="outline-3">
-<h3 id="org1bd9b87"><span class="section-number-3">2.5.</span> &or;I</h3>
+<div id="outline-container-orgcc4ea0c" class="outline-3">
+<h3 id="orgcc4ea0c"><span class="section-number-3">2.5.</span> &or;I</h3>
 <div class="outline-text-3" id="text-2-5">
 <p>
 i&emsp;| A                           <br />
@@ -345,8 +345,8 @@ j&emsp;|&emsp;| B&or;A &emsp;&emsp; &or;I  B,i              <br />
 </p>
 </div>
 </div>
-<div id="outline-container-org17270cc" class="outline-3">
-<h3 id="org17270cc"><span class="section-number-3">2.6.</span> &or;E</h3>
+<div id="outline-container-orgfd30236" class="outline-3">
+<h3 id="orgfd30236"><span class="section-number-3">2.6.</span> &or;E</h3>
 <div class="outline-text-3" id="text-2-6">
 <p>
 a&emsp;| A&or;B                        <br />
@@ -367,8 +367,8 @@ p&emsp;| C &emsp;&emsp;&emsp;  &or;E a,k-h,b-d           <br />
 </p>
 </div>
 </div>
-<div id="outline-container-org83e6c76" class="outline-3">
-<h3 id="org83e6c76"><span class="section-number-3">2.7.</span> &harr;I</h3>
+<div id="outline-container-org7f91a8d" class="outline-3">
+<h3 id="org7f91a8d"><span class="section-number-3">2.7.</span> &harr;I</h3>
 <div class="outline-text-3" id="text-2-7">
 <p>
 b&emsp;|&emsp;|<sup>b</sup> A &emsp;&emsp; ass                 <br />
@@ -387,8 +387,8 @@ p&emsp;| B&harr;A &emsp;&emsp;&emsp;  &harr;I k-h,b-d           <br />
 </p>
 </div>
 </div>
-<div id="outline-container-orgf0fdf16" class="outline-3">
-<h3 id="orgf0fdf16"><span class="section-number-3">2.8.</span> &harr;E</h3>
+<div id="outline-container-org840bc4a" class="outline-3">
+<h3 id="org840bc4a"><span class="section-number-3">2.8.</span> &harr;E</h3>
 <div class="outline-text-3" id="text-2-8">
 <p>
 b&emsp;| A                     <br />
@@ -415,8 +415,8 @@ p&emsp;|&emsp;|&emsp;| A &emsp;&emsp;&emsp; &harr;Er d,b      <br />
 </p>
 </div>
 </div>
-<div id="outline-container-org41996c1" class="outline-3">
-<h3 id="org41996c1"><span class="section-number-3">2.9.</span> &not;I</h3>
+<div id="outline-container-orgf636d7a" class="outline-3">
+<h3 id="orgf636d7a"><span class="section-number-3">2.9.</span> &not;I</h3>
 <div class="outline-text-3" id="text-2-9">
 <p>
 b&emsp;|&emsp;|<sup>b</sup> A                     <br />
@@ -425,8 +425,8 @@ d+1| &not;A &emsp;&emsp;&emsp; &not;I b-d      <br />
 </p>
 </div>
 </div>
-<div id="outline-container-orgbf35f54" class="outline-3">
-<h3 id="orgbf35f54"><span class="section-number-3">2.10.</span> &not;E</h3>
+<div id="outline-container-orgdf52f73" class="outline-3">
+<h3 id="orgdf52f73"><span class="section-number-3">2.10.</span> &not;E</h3>
 <div class="outline-text-3" id="text-2-10">
 <p>
 b&emsp;| &not;A                     <br />
@@ -441,17 +441,17 @@ d&emsp;|&emsp;|&emsp;| &perp; &emsp;&emsp;&emsp; &not;E d,b      <br />
 </p>
 </div>
 </div>
-<div id="outline-container-orgb01f4fe" class="outline-3">
-<h3 id="orgb01f4fe"><span class="section-number-3">2.11.</span> &exist;I</h3>
+<div id="outline-container-org3606f43" class="outline-3">
+<h3 id="org3606f43"><span class="section-number-3">2.11.</span> &exist;I</h3>
 </div>
 </div>
-<div id="outline-container-org9d0d2cb" class="outline-2">
-<h2 id="org9d0d2cb"><span class="section-number-2">3.</span> <span class="todo TODO">TODO</span> finish the rules and make into anki</h2>
+<div id="outline-container-org92e4451" class="outline-2">
+<h2 id="org92e4451"><span class="section-number-2">3.</span> <span class="todo TODO">TODO</span> finish the rules and make into anki</h2>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Michał Kluz</p>
-<p class="date">Created: 2025-09-17 Wed 17:11</p>
+<p class="date">Created: 2025-09-24 Wed 12:18</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
